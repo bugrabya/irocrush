@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+    width:  100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Telefon alanı */
+#phone {
+    width: 100vw;
+    height: 100vh;
+
+    max-width: 420px;
+    max-height: 900px;
+
+    background-image: url("images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;   /* 🔥 REFERANS */
+    overflow: hidden;     /* 🔥 TAŞMAYI KESER */
+}
+
+/* Logo */
+#logo {
+    width: 200px;
+    margin: 20px 0;
+}
+
+/* Oyun alanı */
+#game {
+    width: 360px;
+    height: 576px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+
+    margin-top: 40px; /* 🔥 biraz aşağı */
+}
+
+#game img {
+    width: 100%;
+    touch-action: none;
+}
+#game img {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.pop {
+    opacity: 0;
+    transform: scale(0.5);
+}
+#score {
+
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif;
+
+    /* BOYUT */
+    font-size: 24px;
+
+    color: white;
+
+    /* PÜRÜZSÜZ OUTLINE */
+    text-shadow:
+        0 0 2px #000,
+        0 0 3px #000,
+        0 0 4px #000;
+
+    user-select: none;
+}
+/* AYAR IKONU */
+#settings-btn {
+    width: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 30;
+    cursor: pointer;
+}
+
+/* BLUR OVERLAY */
+#overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+/* AYAR MENÜ JPG */
+#settings-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 52%;
+    max-width: 240px;
+
+    object-fit: cover;     /* 🔥 ÇOK KRİTİK */
+    display: block;        /* 🔥 IMG için şart */
+
+    transform: translateX(-100%);
+    transition: transform 0.25s ease-out;
+
+    z-index: 20;
+}
+
+/* AÇIK HAL */
+ #settings-panel.open {
+    transform: translateX(0);
+}
+
+ #overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#score-box {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    z-index: 5;
+}
+
+
+
